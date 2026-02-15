@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max - Your AI Assistant</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;background:linear-gradient(135deg,#0f0f1a,#1a1a2e,#16213e);display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:-apple-system,sans-serif;overflow:hidden}
+.container{text-align:center}
+svg{filter:drop-shadow(0 0 30px rgba(100,100,255,0.3))}
+.name{color:#fff;font-size:32px;font-weight:300;margin-top:20px;letter-spacing:4px;text-transform:uppercase}
+.tagline{color:rgba(255,255,255,0.5);font-size:14px;margin-top:8px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%,100%{opacity:0.5}50%{opacity:1}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.float{animation:float 3s ease-in-out infinite}
+.pulse{animation:pulse 2s ease-in-out infinite}
+.orbit{animation:rotate 10s linear infinite;transform-origin:200px 200px}
+</style>
+</head>
+<body>
+<div class="container">
+<svg width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#0f0a1e"/>
+    </linearGradient>
+  </defs>
+  
+  <circle cx="200" cy="200" r="180" fill="url(#glow)" class="pulse"/>
+  
+  <g class="orbit">
+    <circle cx="200" cy="50" r="4" fill="#f472b6"/>
+    <circle cx="200" cy="350" r="3" fill="#34d399"/>
+  </g>
+  <g class="orbit" style="animation-duration:15s;animation-direction:reverse">
+    <circle cx="200" cy="30" r="3" fill="#fbbf24"/>
+    <circle cx="200" cy="370" r="5" fill="#60a5fa"/>
+  </g>
+  
+  <g class="float">
+    <rect x="120" y="100" width="160" height="180" rx="40" fill="url(#bodyGrad)"/>
+    <rect x="140" y="125" width="120" height="80" rx="15" fill="url(#screenGrad)"/>
+    
+    <ellipse cx="175" cy="165" rx="18" ry="20" fill="#fff"/>
+    <circle cx="178" cy="168" r="10" fill="#1e1b4b"/>
+    <circle cx="182" cy="163" r="4" fill="#fff"/>
+    
+    <ellipse cx="225" cy="165" rx="18" ry="20" fill="#fff"/>
+    <circle cx="228" cy="168" r="10" fill="#1e1b4b"/>
+    <circle cx="232" cy="163" r="4" fill="#fff"/>
+    
+    <path d="M 165 195 Q 200 220 235 195" stroke="#a5b4fc" stroke-width="4" fill="none" stroke-linecap="round"/>
+    
+    <line x1="200" y1="100" x2="200" y2="70" stroke="#818cf8" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="200" cy="62" r="12" fill="#f472b6" class="pulse"/>
+    
+    <rect x="100" y="150" width="20" height="50" rx="8" fill="#6366f1"/>
+    <rect x="280" y="150" width="20" height="50" rx="8" fill="#6366f1"/>
+    
+    <rect x="150" y="280" width="100" height="60" rx="15" fill="url(#bodyGrad)"/>
+    <rect x="160" y="290" width="80" height="40" rx="10" fill="#1e1b4b"/>
+    
+    <circle cx="180" cy="310" r="6" fill="#34d399" class="pulse"/>
+    <circle cx="200" cy="310" r="6" fill="#fbbf24" class="pulse" style="animation-delay:0.5s"/>
+    <circle cx="220" cy="310" r="6" fill="#60a5fa" class="pulse" style="animation-delay:1s"/>
+  </g>
+  
+  <text x="80" y="120" fill="#818cf8" font-size="20" opacity="0.5" class="float" style="animation-delay:0.5s">&lt;/&gt;</text>
+  <text x="300" y="140" fill="#f472b6" font-size="18" opacity="0.5" class="float" style="animation-delay:1s">{}</text>
+  <text x="70" y="300" fill="#34d399" font-size="16" opacity="0.5" class="float" style="animation-delay:1.5s">01</text>
+  <text x="310" y="320" fill="#fbbf24" font-size="18" opacity="0.5" class="float" style="animation-delay:0.8s">AI</text>
+</svg>
+
+<div class="name">Max</div>
+<div class="tagline">Your OpenClaw AI Assistant</div>
+</div>
+</body>
+</html>

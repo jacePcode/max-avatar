@@ -5,6 +5,7 @@ import AppShell from './components/common/AppShell'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import EntriesPage from './pages/EntriesPage'
+import EntitiesPage from './pages/EntitiesPage'
 
 function ProtectedRoute({ children }) {
   const token = useAuthStore((s) => s.token)
@@ -38,8 +39,8 @@ export default function App() {
               <Routes>
                 <Route path="entries" element={<EntriesPage />} />
                 <Route path="/" element={<Navigate to="/entries" replace />} />
+                <Route path="entities" element={<EntitiesPage />} />
                 {/* Placeholder routes for future modules */}
-                <Route path="entities" element={<ComingSoon title="Entity System" />} />
                 <Route path="timeline" element={<ComingSoon title="Timeline" />} />
                 <Route path="graph"    element={<ComingSoon title="Connection Graph" />} />
                 <Route path="map"      element={<ComingSoon title="Map View" />} />

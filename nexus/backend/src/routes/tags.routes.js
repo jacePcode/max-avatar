@@ -1,5 +1,9 @@
 const router = require('express').Router()
-// GET    /api/tags         — list all tags
-// POST   /api/tags         — create tag
-// DELETE /api/tags/:id     — delete tag (admin)
+const ctrl = require('../controllers/tags.controller')
+const { requireEditor, requireAdmin } = require('../middleware/auth')
+
+router.get('/',          ctrl.list)
+router.post('/',         requireEditor, ctrl.create)
+router.delete('/:id',    requireAdmin,  ctrl.remove)
+
 module.exports = router

@@ -1,7 +1,11 @@
 const router = require('express').Router()
-// POST /api/auth/register  — register via invite code
-// POST /api/auth/login     — login, returns JWT
-// POST /api/auth/logout    — invalidate session (client-side JWT drop)
-// GET  /api/auth/me        — current user info
-// POST /api/auth/invite    — generate invite code (admin)
+const ctrl = require('../controllers/auth.controller')
+const { requireAuth, requireAdmin } = require('../middleware/auth')
+
+router.post('/register', ctrl.register)
+router.post('/login',    ctrl.login)
+router.get('/me',        requireAuth, ctrl.me)
+router.post('/invite',   requireAuth, requireAdmin, ctrl.createInvite)
+router.get('/invites',   requireAuth, requireAdmin, ctrl.listInvites)
+
 module.exports = router
